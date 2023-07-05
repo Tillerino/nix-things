@@ -16,6 +16,7 @@
     extraPackages = [
       pkgs.dhall-lsp-server
       pkgs.nil
+      pkgs.java-language-server
     ];
 
     extraConfig = ''
