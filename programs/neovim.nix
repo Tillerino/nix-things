@@ -11,6 +11,7 @@
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.melange-nvim
       pkgs.vimPlugins.telescope-nvim
+      pkgs.vimPlugins.copilot-vim # set up with :Copilot setup
     ];
 
     extraPackages = [
