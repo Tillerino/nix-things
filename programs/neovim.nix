@@ -1,6 +1,6 @@
 { pkgs, append ? { } }:
 
-let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; };
+let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; } // append;
 
 in
 
