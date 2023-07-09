@@ -19,6 +19,7 @@ in
       java8 = "export JAVA_HOME=$HOME/jdks/openjdk8";
       java11 = "export JAVA_HOME=$HOME/jdks/openjdk11";
       java17 = "export JAVA_HOME=$HOME/jdks/openjdk17";
+      java19 = "export JAVA_HOME=$HOME/jdks/openjdk19";
       mcis = "mvn clean javadoc:jar source:jar install -DskipTests -Djacoco.skip=true";
 
       # Git

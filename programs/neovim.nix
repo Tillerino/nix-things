@@ -15,6 +15,8 @@ in
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.melange-nvim
       pkgs.vimPlugins.telescope-nvim
+      pkgs.vimPlugins.undotree
+      pkgs.vimPlugins.fugitive
     ] ++ finalAppend.plugins;
 
     extraPackages = [

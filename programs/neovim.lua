@@ -15,6 +15,10 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
 vim.g.mapleader = ' '
 
+-- global undo history across sessions
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
+vim.opt.undofile = true
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- keep half-page down jump centered
 vim.keymap.set("n", "<C-u>", "<C-u>zz") -- keep half-page up jump centered
 vim.keymap.set("n", "n", "nzzzv") -- keep jump-to-next centered
@@ -22,12 +26,19 @@ vim.keymap.set("n", "N", "Nzzzv") -- keep jump-to-prvious centered
 
 vim.keymap.set("n", "<leader>hms", ":w <CR> :!home-manager switch <CR>")
 
+-- Telescope
 local builtin = require('telescope.builtin')
 -- see https://github.com/nvim-telescope/telescope.nvim#pickers
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Undotree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+-- Fugitive
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
 vim.api.nvim_create_user_command('Test', 'echo "It works!"', {})
 --vim.api.nvim_create_user_command('Hms', function(opts)
