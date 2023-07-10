@@ -1,6 +1,6 @@
 { pkgs, append ? { } }:
 
-let finalAppend = { shellAliases = { }; initExtra = { }; } // append;
+let finalAppend = { shellAliases = { }; initExtra = ""; } // append;
 
 in
 
