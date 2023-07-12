@@ -44,7 +44,17 @@ in
       function nix-grep() { grep -R $@ ~/git/nixpkgs/pkgs }
       function grep-pom() { grep -R --include "pom.xml" $@ }
       function ssh() { echo -e '\e]11;rgb:33/00/00\a'; command ssh $@; echo -e '\e]11;rgb:00/00/00\a'; }
+
+      # Maven
       function mgo() { mvn dependency:go-offline $@ && mvn dependency:sources; mvn dependency:resolve -Dclassifier=javadoc $@ }
       function mgo-all() { for f in *; do echo $f; mgo -f $f; done }
+      function mt() {
+        # -DfailIfNoTests=false because of multi-module projects
+        mvn test -DfailIfNoTests=false -Dsurefire.failIfNoSpecifiedTests=false -Djacoco.skip=true -Dtest=$@
+      }
+      function _mt() {
+        compadd $(find . -name "*Test.java" | grep -o -P "[A-Z][^\.]+")
+      }
+      compdef _mt mt
     '' + finalAppend.initExtra;
 }
