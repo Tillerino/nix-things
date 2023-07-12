@@ -40,15 +40,25 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 -- Fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
-vim.api.nvim_create_user_command('Test', 'echo "It works!"', {})
---vim.api.nvim_create_user_command('Hms', function(opts)
---  print("saving...")
--- vim.cmd.write { }
---	print("saved")     
---    vim.cmd.norm("!home-manager switch <CR>")
--- print("home-manager switched.")
---  end, { nargs = 0 })
-vim.api.nvim_create_user_command('Hms', ":w <CR> :!home-manager switch <CR>", {})
+-- Treesitter
+vim.opt.runtimepath:append("~/.cache/nvim/treesitter-parsers")
+require'nvim-treesitter.configs'.setup {
+  parser_install_dir = "~/.cache/nvim/treesitter-parsers",
+  ensure_installed = "all",
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn", -- set to `false` to disable one of the mappings
+      node_incremectal = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+}
+
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
