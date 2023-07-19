@@ -39,6 +39,9 @@ in
       bindkey '^[[1;5D' backward-word
       bindkey '^H' backward-kill-word
       bindkey '5~' kill-word
+
+      function wh() { readlink -f $(which $@) }
+
       function gitFetchDetachOriginMaster() { git fetch origin; git checkout --detach origin/master; }
       function fixEclipse() { for f in $(find . -maxdepth 3 -name ".classpath"); do echo $f; perl -pi -e 's,excluding="\*\*",,g' $f; done; }
       function nix-grep() { grep -R $@ ~/git/nixpkgs/pkgs }
