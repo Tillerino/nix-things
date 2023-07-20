@@ -42,6 +42,17 @@ in
 
       function wh() { readlink -f $(which $@) }
 
+      function checkMouseWakeup() {
+        (
+          cd /sys/bus/usb/devices
+          for i in $(grep Mouse */product | grep -o -P "^[^/]+"); do
+            grep enabled $i/power/wakeup && \
+              echo WARNING Can wake up from sleep from mouse. \
+                Run sudo sh -c '"' echo disabled '>' /sys/bus/usb/devices/$i/power/wakeup '"'
+          done
+        )
+      }
+
       function gitFetchDetachOriginMaster() { git fetch origin; git checkout --detach origin/master; }
       function fixEclipse() { for f in $(find . -maxdepth 3 -name ".classpath"); do echo $f; perl -pi -e 's,excluding="\*\*",,g' $f; done; }
       function nix-grep() { grep -R $@ ~/git/nixpkgs/pkgs }
