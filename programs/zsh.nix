@@ -26,6 +26,9 @@ in
       gt = "git log --graph --all --oneline";
       gpo = "git push origin";
       gcd = "git checkout --detach";
+
+      export-gnome-settings = "dconf dump / > ~/git/nix-things/files/gnome.conf";
+      import-gnome-settings = "dconf load / < ~/git/nix-things/files/gnome.conf";
     } // finalAppend.shellAliases;
 
     oh-my-zsh = {
