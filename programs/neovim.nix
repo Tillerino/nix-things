@@ -20,7 +20,7 @@ in
     ] ++ finalAppend.plugins;
 
     extraPackages = [
-      pkgs.dhall-lsp-server
+      # pkgs.dhall-lsp-server broken
       pkgs.nil
       pkgs.java-language-server
     ] ++ finalAppend.extraPackages;
