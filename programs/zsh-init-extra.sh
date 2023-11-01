@@ -59,3 +59,7 @@ function _mt() {
   compadd $(find . -name "*Test.java" | grep -o -P "[A-Z][^\.]+")
 }
 compdef _mt mt
+
+function github-keys() {
+  curl https://github.com/$@.keys;
+}
