@@ -23,6 +23,7 @@ in
       # pkgs.dhall-lsp-server broken
       pkgs.nil
       pkgs.java-language-server
+      pkgs.ripgrep
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''

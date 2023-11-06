@@ -8,5 +8,5 @@ org.eclipse.m2e.apt.mode=jdt_apt
 EOT
 
 cat <<EOT >> ./.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs
-content_assist_favorite_static_members=org.assertj.core.api.Assertions.*;org.mockito.Mockito.*;java.util.stream.Collectors.*
+content_assist_favorite_static_members=org.assertj.core.api.Assertions.*;org.mockito.Mockito.*;java.util.stream.Collectors.*,org.springframework.test.web.servlet.result.MockMvcResultHandlers.*,org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 EOT
