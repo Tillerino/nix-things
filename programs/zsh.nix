@@ -32,6 +32,9 @@ in
       dump-gnome = "dconf dump / > ~/git/nix-things/files/gnome.conf";
       setup-gnome = "dconf load / < ~/git/nix-things/files/gnome.conf";
 
+      dump-cinnamon = "dconf dump /org/cinnamon/ > ~/git/nix-things/files/cinnamon.conf";
+      setup-cinnamon = "dconf load /org/cinnamon/ < ~/git/nix-things/files/cinnamon.conf";
+
       dump-eclipse-workspace = ''clear; for f in $(find -name "*.prefs"); do echo; echo mkdir -p $(dirname $f); echo cat "<<EOT >> $f"; cat $f; echo "EOT"; echo; done'';
       setup-eclipse-workspace = ''${../scripts/setup-eclipse-workspace.sh}'';
     } // finalAppend.shellAliases;
