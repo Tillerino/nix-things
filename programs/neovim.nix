@@ -24,6 +24,7 @@ in
       pkgs.nil
       pkgs.java-language-server
       pkgs.ripgrep
+      pkgs.nodePackages.pyright
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''

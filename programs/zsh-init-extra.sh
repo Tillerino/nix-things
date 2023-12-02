@@ -5,7 +5,6 @@ bindkey '5~' kill-word
 
 # General
 function wh() { readlink -f $(which $@) }
-function ssh() { echo -e '\e]11;rgb:33/00/00\a'; command ssh $@; echo -e '\e]11;rgb:00/00/00\a'; }
 
 # Desktop
 function checkMouseWakeup() {

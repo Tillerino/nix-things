@@ -9,6 +9,7 @@ lspconfig.dhall_lsp_server.setup{}
 lspconfig.java_language_server.setup {
   cmd = { "java-language-server" },
 }
+lspconfig.pyright.setup{}
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
