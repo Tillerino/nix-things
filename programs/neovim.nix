@@ -17,6 +17,7 @@ in
       pkgs.vimPlugins.telescope-nvim
       pkgs.vimPlugins.undotree
       pkgs.vimPlugins.fugitive
+      pkgs.vimPlugins.guess-indent-nvim
     ] ++ finalAppend.plugins;
 
     extraPackages = [
