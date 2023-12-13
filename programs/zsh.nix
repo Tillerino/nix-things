@@ -34,6 +34,7 @@ in
 
       dump-cinnamon = "dconf dump /org/cinnamon/ > ~/git/nix-things/files/cinnamon.conf";
       setup-cinnamon = "dconf load /org/cinnamon/ < ~/git/nix-things/files/cinnamon.conf";
+      restart-cinnamon = ''pkill -HUP -f "cinnamon --replace"; echo run cinnamon --replace if this did not work. Go Ctrl-Alt-Esc to restart Cinnamon while you are in the UI.'';
 
       dump-eclipse-workspace = ''clear; for f in $(find -name "*.prefs"); do echo; echo mkdir -p $(dirname $f); echo cat "<<EOT >> $f"; cat $f; echo "EOT"; echo; done'';
       setup-eclipse-workspace = ''${../scripts/setup-eclipse-workspace.sh}'';
