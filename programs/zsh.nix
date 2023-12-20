@@ -29,6 +29,9 @@ in
       gpo = "git push origin";
       gcd = "git checkout --detach";
 
+      # Docker
+      docker-remove-testcontainers = "docker rmi $(docker images | grep testcontainers | awk '{ print $3; }')";
+
       dump-gnome = "dconf dump / > ~/git/nix-things/files/gnome.conf";
       setup-gnome = "dconf load / < ~/git/nix-things/files/gnome.conf";
 

@@ -3,6 +3,10 @@ vim.opt.background = 'light'
 vim.opt.termguicolors = true
 vim.cmd.colorscheme 'melange'
 
+--
+-- LSP
+--
+
 local lspconfig = require("lspconfig")
 lspconfig.nil_ls.setup{}
 lspconfig.dhall_lsp_server.setup{}
@@ -10,6 +14,19 @@ lspconfig.java_language_server.setup {
   cmd = { "java-language-server" },
 }
 lspconfig.pyright.setup{}
+
+-- HTML, see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.html.setup {
+  capabilities = capabilities,
+}
+
+--
+-- END LSP
+--
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -99,3 +116,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 require('guess-indent').setup {}
+
+-- Snippets https://github.com/L3MON4D3/LuaSnip
+ls = require('luasnip')
+ls.setup { }
+vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {})
+vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})

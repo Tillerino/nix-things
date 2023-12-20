@@ -18,6 +18,7 @@ in
       pkgs.vimPlugins.undotree
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.guess-indent-nvim
+      pkgs.vimPlugins.luasnip
     ] ++ finalAppend.plugins;
 
     extraPackages = [
@@ -26,6 +27,7 @@ in
       pkgs.java-language-server
       pkgs.ripgrep
       pkgs.nodePackages.pyright
+      pkgs.vscode-langservers-extracted
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''
@@ -38,6 +40,9 @@ in
       set softtabstop =2
       set shiftwidth  =2
       set expandtab
+
+      " load .nvim.lua, .nvimrc, and .exrc file from current directory on open
+      set exrc
     '' + finalAppend.extraConfig;
 
     extraLuaConfig = ''
