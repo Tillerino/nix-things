@@ -1,6 +1,6 @@
 { pkgs, append ? { } }:
 
-let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; } // append;
+let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; extraLazy = "{}"; } // append;
 
 in
 
@@ -9,16 +9,7 @@ in
 
     plugins = [
 #     pkgs.vimPlugins.wildfire-vim
-      pkgs.vimPlugins.lsp-format-nvim
-      pkgs.vimPlugins.nvim-lspconfig
-      pkgs.vimPlugins.nvim-treesitter
-      pkgs.vimPlugins.gruvbox-nvim
-      pkgs.vimPlugins.melange-nvim
-      pkgs.vimPlugins.telescope-nvim
-      pkgs.vimPlugins.undotree
-      pkgs.vimPlugins.fugitive
-      pkgs.vimPlugins.guess-indent-nvim
-      pkgs.vimPlugins.luasnip
+      pkgs.vimPlugins.lazy-nvim # for everything not in nixpkgs
     ] ++ finalAppend.plugins;
 
     extraPackages = [
@@ -46,6 +37,7 @@ in
     '' + finalAppend.extraConfig;
 
     extraLuaConfig = ''
+      extraLazy = ${finalAppend.extraLazy}
       dofile('${./neovim.lua}')
     '' + finalAppend.extraLuaConfig;
 }

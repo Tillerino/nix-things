@@ -1,3 +1,28 @@
+local lazyPackages = {
+	{ "L3MON4D3/LuaSnip" },
+  { "lukas-reineke/lsp-format.nvim" },
+  { "neovim/nvim-lspconfig" },
+  { "nvim-treesitter/nvim-treesitter" },
+  { "savq/melange-nvim" },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  { "mbbill/undotree" },
+  { "tpope/vim-fugitive" },
+  { "nmac427/guess-indent.nvim" },
+  { "hrsh7th/nvim-cmp" },
+  { "saadparwaiz1/cmp_luasnip" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "tzachar/cmp-ai" },
+}
+
+for k,v in ipairs(extraLazy) do
+    table.insert(lazyPackages, v)
+ end
+
+require("lazy").setup(lazyPackages)
+
 vim.o.hidden = false
 vim.opt.background = 'light'
 vim.opt.termguicolors = true
@@ -129,3 +154,32 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 		ls.change_choice(1)
 	end
 end, {silent = true})
+
+-- AI provider for CMP, fork from https://github.com/JoseConseco/cmp-ai
+
+local cmp_ai = require('cmp_ai.config')
+
+-- Completions https://github.com/hrsh7th/nvim-cmp
+local cmp = require('cmp')
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'cmp_ai' },
+  }, {
+    { name = 'buffer' },
+  })
+})
