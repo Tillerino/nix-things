@@ -24,6 +24,17 @@ in
       java21 = "export JAVA_HOME=$HOME/jdks/openjdk21";
       mcis = "mvn clean javadoc:jar source:jar install -DskipTests -Djacoco.skip=true";
 
+      # Python
+      venv = ''if [ ! -d .venv ]; then
+          python3 -m venv .venv
+          echo 'export PYTHONPATH=""' >> .venv/bin/activate
+        fi
+        source .venv/bin/activate
+        if [ -f requirements.txt ]; then
+          pip3 install -r requirements.txt
+        fi
+        '';
+
       # Git
       gt = "git log --graph --all --oneline";
       gpo = "git push origin";
