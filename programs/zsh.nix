@@ -56,6 +56,8 @@ in
 
     oh-my-zsh = {
       enable = true;
+      # if the git thing is slow for a repo, disable it selectively with
+      # git config oh-my-zsh.hide-dirty 1
       plugins = [ "git" "thefuck" ];
       theme = "robbyrussell";
     };
