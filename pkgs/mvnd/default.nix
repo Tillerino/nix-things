@@ -14,7 +14,7 @@ maven.buildMavenPackage rec {
   mvnHash = "sha256-duqKRgU8ubcIxYskHxZMv7sE+h3l5VgMvdIDsNu44Io=";
 
   buildOffline = true;
-  mvnDepsParameters = "-B -Pnative -DskipNativeBuild=true";
+  mvnDepsParameters = "-B -Pnative";
   manualMvnArtifacts = [
     "org.codehaus.mojo:extra-enforcer-rules:1.7.0"
     "org.apache.groovy:groovy-all:4.0.13:pom"
