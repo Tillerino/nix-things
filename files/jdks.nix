@@ -4,6 +4,7 @@
     "jdks/openjdk8".source = "${pkgs.openjdk8}/lib/openjdk";
     "jdks/openjdk11".source = "${pkgs.openjdk11}/lib/openjdk";
     "jdks/openjdk17".source = "${pkgs.openjdk17}/lib/openjdk";
+    "jdks/openjdk20".source = "${pkgs.openjdk20}/lib/openjdk";
     "jdks/openjdk21".source = "${pkgs.openjdk21}/lib/openjdk";
 
     ".m2/toolchains.xml".text = ''
