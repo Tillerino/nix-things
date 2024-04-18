@@ -7,6 +7,9 @@ with pkgs; [
   tldr
   thefuck
 
+  curl
+  wget
+
   jq
 
   unstable.just
