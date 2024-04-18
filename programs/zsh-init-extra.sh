@@ -3,6 +3,9 @@ bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 
+# Zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 # General
 function wh() { readlink -f $(which $@) }
 
