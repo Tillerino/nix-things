@@ -1,5 +1,28 @@
 {pkgs, unstable}:
 with pkgs; [
-  zoxide
-  fzf
+  zoxide # nicer cd, configured in zsh init
+  fzf # for fuzzy zoxide
+  ripgrep
+
+  tldr
+  thefuck
+
+  jq
+
+  unstable.just
+
+  ibm-plex
+  nerdfonts
+
+  hyperfine # benchmark from CLI
+
+  p7zip
+  unzip
+  zip
+
+  b3sum # BLAKE3 hash function
+
+  magic-wormhole
+
+  parallel
 ]
