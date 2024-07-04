@@ -22,7 +22,10 @@ in
       java17 = "export JAVA_HOME=$HOME/jdks/openjdk17";
       java19 = "export JAVA_HOME=$HOME/jdks/openjdk19";
       java21 = "export JAVA_HOME=$HOME/jdks/openjdk21";
+
+      # Maven
       mcis = "mvn clean javadoc:jar source:jar install -DskipTests -Djacoco.skip=true";
+      mvn-next-patch-snapshot = "mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit";
 
       # Python
       venv = ''if [ ! -d .venv ]; then
