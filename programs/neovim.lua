@@ -27,10 +27,12 @@ vim.o.hidden = false
 vim.opt.background = 'light'
 vim.opt.termguicolors = true
 vim.cmd.colorscheme 'melange'
+vim.g.mapleader = ' '
 
 --
 -- LSP
 --
+-- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 local lspconfig = require("lspconfig")
 lspconfig.nil_ls.setup{}
@@ -48,7 +50,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup {
   capabilities = capabilities,
 }
+lspconfig.rust_analyzer.setup{}
 
+vim.keymap.set('n', '<leader>lref', vim.lsp.buf.references, opts)
+vim.keymap.set('n', '<leader>lren', vim.lsp.buf.rename, opts)
 --
 -- END LSP
 --
@@ -56,7 +61,6 @@ lspconfig.html.setup {
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
-vim.g.mapleader = ' '
 
 -- global undo history across sessions
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
@@ -131,11 +135,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 		vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-		vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
 		vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 		vim.keymap.set('n', '<space>f', function()
 			vim.lsp.buf.format { async = true }
+
 		end, opts)
 	end,
 })
