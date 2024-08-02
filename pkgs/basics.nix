@@ -34,4 +34,6 @@ with pkgs; [
   gnupg
 
   trippy
+
+  gobang # SQL TUI
 ]
