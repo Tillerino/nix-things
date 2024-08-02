@@ -3,6 +3,7 @@ with pkgs; [
   zoxide # nicer cd, configured in zsh init
   fzf # for fuzzy zoxide
   ripgrep
+  rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
 
   tldr
   thefuck
@@ -13,6 +14,7 @@ with pkgs; [
   jq
 
   unstable.just
+  tup
 
   ibm-plex
   nerdfonts
@@ -28,4 +30,8 @@ with pkgs; [
   magic-wormhole
 
   parallel
+
+  gnupg
+
+  trippy
 ]

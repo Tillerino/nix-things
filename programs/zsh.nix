@@ -11,6 +11,9 @@ in
       # General
       l = "ls -la";
       uuid = "cat /proc/sys/kernel/random/uuid";
+      powertop = "nix-shell -p powertop --run 'sudo powertop'";
+      s-tui = "nix-shell -p s-tui --run 'sudo s-tui'";
+      geekbench = "nix-shell -p geekbench --run geekbench6";
 
       # Nix
       edit-home-manager-config-and-reload = "home-manager edit && home-manager switch";
@@ -45,6 +48,9 @@ in
 
       # Docker
       docker-remove-testcontainers = "docker rmi $(docker images | grep testcontainers | awk '{ print $3; }')";
+
+      # Sound
+      scarlett-mixer = ''nix-shell -p alsa-scarlett-gui --run "alsa-scarlett-gui"'';
 
       dump-gnome = "dconf dump / > ~/git/nix-things/files/gnome.conf";
       setup-gnome = "dconf load / < ~/git/nix-things/files/gnome.conf";
