@@ -26,7 +26,8 @@ function gitFetchDetachOriginMaster() { git fetch origin; git checkout --detach 
 
 # Eclipse
 function fixEclipse() {
-  M2_REPO=$(mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout)
+  MVN=$(if command -v mvnd > /dev/null; then echo mvnd; else echo mvn; fi)
+  M2_REPO=$($MVN help:evaluate -Dexpression=settings.localRepository -q -DforceStdout)
   for f in $(find . -maxdepth 3 -name ".classpath"); do
     echo $f
     perl -pi -e 's,excluding="\*\*",,g' $f
@@ -34,7 +35,7 @@ function fixEclipse() {
     fp=$dir/.factorypath
     if [ -f $fp ]; then
       echo FACTORYPATH $fp
-      DEPS=$(mvn -N dependency:build-classpath -DincludeScope=compile -f $dir | grep -P "^/")
+      DEPS=$($MVN -N dependency:build-classpath -DincludeScope=compile -f $dir | grep -P "^/")
       echo '<factorypath>' > $fp
       for jar in ${(@s/:/)DEPS}; do
         rel=$(realpath --relative-to=$M2_REPO $jar)

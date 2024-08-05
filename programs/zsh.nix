@@ -29,6 +29,7 @@ in
       # Maven
       mcis = "mvn clean javadoc:jar source:jar install -DskipTests -Djacoco.skip=true";
       mvn-next-patch-snapshot = "mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit";
+      mvn-next-minor-snapshot = "mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.nextMinorVersion}.0-SNAPSHOT versions:commit";
 
       # Python
       venv = ''if [ ! -d .venv ]; then
