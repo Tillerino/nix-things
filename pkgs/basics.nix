@@ -1,7 +1,7 @@
 {pkgs, unstable}:
 with pkgs; [
   zoxide # nicer cd, configured in zsh init
-  fzf # for fuzzy zoxide
+  fzf # for fuzzy zoxide or for easy choices in shell
   ripgrep
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
 
@@ -35,5 +35,9 @@ with pkgs; [
 
   trippy
 
-  gobang # SQL TUI
+  # gobang # SQL TUI -- doesn't compile currently
+
+  # Image processing
+  exiftool # view / modify exif data
+  imagemagick # image converter
 ]
