@@ -40,4 +40,6 @@ with pkgs; [
   # Image processing
   exiftool # view / modify exif data
   imagemagick # image converter
+
+  lazygit
 ]
