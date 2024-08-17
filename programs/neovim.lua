@@ -51,6 +51,7 @@ lspconfig.html.setup {
   capabilities = capabilities,
 }
 lspconfig.rust_analyzer.setup{}
+lspconfig.bashls.setup{}
 
 vim.keymap.set('n', '<leader>lref', vim.lsp.buf.references, opts)
 vim.keymap.set('n', '<leader>lren', vim.lsp.buf.rename, opts)

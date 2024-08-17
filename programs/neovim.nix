@@ -19,6 +19,7 @@ in
       pkgs.ripgrep
       pkgs.nodePackages.pyright
       pkgs.vscode-langservers-extracted
+      pkgs.nodePackages.bash-language-server
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''

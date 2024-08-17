@@ -13,6 +13,7 @@ in
       uuid = "cat /proc/sys/kernel/random/uuid";
       powertop = "nix-shell -p powertop --run 'sudo powertop'";
       s-tui = "nix-shell -p s-tui --run 'sudo s-tui'";
+      bandwhich = "nix-shell -p bandwhich --run 'sudo bandwhich'";
       geekbench = "nix-shell -p geekbench --run geekbench6";
 
       # Nix

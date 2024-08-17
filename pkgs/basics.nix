@@ -4,6 +4,8 @@ with pkgs; [
   fzf # for fuzzy zoxide or for easy choices in shell
   ripgrep
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
+  superfile
+  gdu # disk utilization
 
   tldr
   thefuck
@@ -42,4 +44,6 @@ with pkgs; [
   imagemagick # image converter
 
   lazygit
+
+  cloc # count lines of code
 ]
