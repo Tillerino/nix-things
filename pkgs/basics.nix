@@ -43,7 +43,7 @@ with pkgs; [
   exiftool # view / modify exif data
   imagemagick # image converter
 
-  lazygit
+  gitui # TUI for git
 
   cloc # count lines of code
 ]

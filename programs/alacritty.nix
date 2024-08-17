@@ -5,8 +5,8 @@
 let melange = pkgs.fetchFromGitHub {
   owner = "savq";
   repo = "melange-nvim";
-  rev = "f15922543dd70b360335effb61411c05c710b99c";
-  hash = "sha256-Ad6PuVhQY4T5wcW6jV9MkSNRlcOitlfZOrfT38GuXKc=";
+  rev = "e84f8bc2abc5d6edaa7bd48a16c3078504ecb713";
+  hash = "sha256-/i5gKjsAv/k6E9zF3+JwfF/4p+eat8z7b00SFSPoumQ=";
 };
 
 in {
@@ -14,9 +14,9 @@ in {
   package = package;
 
   settings = {
-    import = [ "${melange}/term/alacritty/melange_light.yml" ];
+    import = [ "${melange}/term/alacritty/melange_light.toml" ];
     font =  {
-      normal = { family = "IBM Plex Mono"; weight = 150; }; # weight not working?
+      normal = { family = "IBM Plex Mono"; }; # weight not working?
       bold.family = "IBM Plex Mono";
       italic.family = "IBM Plex Mono";
       size = 14.0;
