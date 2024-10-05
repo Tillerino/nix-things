@@ -15,6 +15,7 @@ local lazyPackages = {
   { "saadparwaiz1/cmp_luasnip" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "tzachar/cmp-ai" },
+  { "christoomey/vim-tmux-navigator" },
 }
 
 for k,v in ipairs(extraLazy) do

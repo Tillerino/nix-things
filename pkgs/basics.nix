@@ -6,6 +6,7 @@ with pkgs; [
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
   superfile
   gdu # disk utilization
+  tmux
 
   tldr
   thefuck
