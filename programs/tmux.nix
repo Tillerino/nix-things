@@ -34,13 +34,23 @@
     bind % split-window -h -c "#{pane_current_path}"
 
     # Use vi keys in copy mode.
-    # <prefix> [ -> go to copy mode, space -> start selection, enter copy selection
+    # <prefix> [ -> go to copy mode, space -> start selection, enter -> copy selection.
+    # Also just dragging the mouse and letting go copies (by default with mouse support above)
     setw -g mode-keys vi
 
+    # Resurrect 
+    set -g @resurrect-processes '"sudo -E -s nvim" vi vim nvim emacs man less more tail top htop irssi weechat mutt k9s "kubectl logs" "kubectl port-forward" watch'
+    set -g @resurrect-hook-post-save-all '~/git/nix-things/programs/tmux-resurrect-post-save.sh'
+    set -g @resurrect-strategy-nvim 'session'
+
+    # Plugin list. Needs to be at the bottom of the file.
     set -g @plugin 'tmux-plugins/tpm'
     set -g @plugin 'tmux-plugins/tmux-sensible'
     # navigate around panes with Ctrl-H,J,K,L - same plugin in neovim - seamless
     set -g @plugin 'christoomey/vim-tmux-navigator'
+
+    # Save and restore sessions
+    set -g @plugin 'tmux-plugins/tmux-resurrect'
 
     run '~/.tmux/plugins/tpm/tpm'
   '';

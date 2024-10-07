@@ -15,7 +15,10 @@ local lazyPackages = {
   { "saadparwaiz1/cmp_luasnip" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "tzachar/cmp-ai" },
+  --- Allows seamless pane navigation between tmux and neovim
   { "christoomey/vim-tmux-navigator" },
+  --- Simple session management
+  { "tpope/vim-obsession" },
 }
 
 for k,v in ipairs(extraLazy) do
