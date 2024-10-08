@@ -9,12 +9,14 @@ in
 
     shellAliases = {
       # General
-      l = "ls -la";
+      l = "ls -lA";
       uuid = "cat /proc/sys/kernel/random/uuid";
       powertop = "nix-shell -p powertop --run 'sudo powertop'";
       s-tui = "nix-shell -p s-tui --run 'sudo s-tui'";
       bandwhich = "nix-shell -p bandwhich --run 'sudo bandwhich'";
       geekbench = "nix-shell -p geekbench --run geekbench6";
+      resurrect-history = ''{ l=""; for f in ~/.local/share/tmux/resurrect/*.txt.post; do if [[ "$l" != "" ]]; then echo; echo ------------; echo $(basename $l) $(basename $f); echo ------------; diff $l $f; fi; l=$f; done } | less'';
+      resurrect-diff = ''for f in ~/.local/share/tmux/resurrect/*.txt.post; do f1=$f2; f2=$f; done; nvim -d $f1 ~/.local/share/tmux/resurrect/last'';
 
       # Nix
       edit-home-manager-config-and-reload = "home-manager edit && home-manager switch";
