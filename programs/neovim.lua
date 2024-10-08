@@ -19,6 +19,14 @@ local lazyPackages = {
   { "christoomey/vim-tmux-navigator" },
   --- Simple session management
   { "tpope/vim-obsession" },
+  --- Sudo in nvim to open read/write-protected files ---
+  {
+    "lambdalisue/vim-suda",
+    init = function()
+      -- Auto sudo within neovim to edit root files
+      vim.g.suda_smart_edit = 1
+    end,
+  },
 }
 
 for k,v in ipairs(extraLazy) do
