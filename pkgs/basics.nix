@@ -7,6 +7,7 @@ with pkgs; [
   superfile
   gdu # disk utilization
   tmux
+  bonnie # bonnie++ -> simple fs benchmark
 
   tldr
   thefuck
@@ -47,4 +48,9 @@ with pkgs; [
   gitui # TUI for git
 
   cloc # count lines of code
+
+  usbutils # includes lsusb
+
+  dive # inspect container images
+  lazydocker # TUI for docker
 ]
