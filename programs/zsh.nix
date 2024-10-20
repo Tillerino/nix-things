@@ -69,12 +69,31 @@ in
       setup-eclipse-workspace = ''${../scripts/setup-eclipse-workspace.sh}'';
     } // finalAppend.shellAliases;
 
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = ./p10k;
+        file = "p10k.zsh";
+      }
+      {
+        name = "zsh-powerlevel10k";
+        src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
+        file = "powerlevel10k.zsh-theme";
+      }
+    ];
+
     oh-my-zsh = {
       enable = true;
       # if the git thing is slow for a repo, disable it selectively with
       # git config oh-my-zsh.hide-dirty 1
-      plugins = [ "git" "thefuck" ];
-      theme = "robbyrussell";
+      plugins = [
+        "git"
+        "thefuck"
+      ];
+      extraConfig = ''
+        # Display red dots whilst waiting for completion.
+        COMPLETION_WAITING_DOTS="true"
+      '';
     };
 
     initExtra = (builtins.readFile ./zsh-init-extra.sh) + finalAppend.initExtra;
