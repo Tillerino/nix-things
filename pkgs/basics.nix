@@ -13,6 +13,8 @@ with pkgs; [
 
   curl
   wget
+  magic-wormhole
+  inetutils
 
   jq
 
@@ -29,8 +31,6 @@ with pkgs; [
   zip
 
   b3sum # BLAKE3 hash function
-
-  magic-wormhole
 
   parallel
 
