@@ -14,12 +14,12 @@ in {
   package = package;
 
   settings = {
-    import = [ "${melange}/term/alacritty/melange_light.toml" ];
+    general.import = [ "${melange}/term/alacritty/melange_light.toml" ];
     font =  {
       normal = { family = "IBM Plex Mono"; }; # weight not working?
       bold.family = "IBM Plex Mono";
       italic.family = "IBM Plex Mono";
-      size = 14.0;
+      size = 12.0;
     };
     window.dimensions = {
       columns = 120;
