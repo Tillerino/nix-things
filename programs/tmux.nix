@@ -29,6 +29,9 @@
     bind -n M-H previous-window # alt-shift-H
     bind -n M-L next-window     # alt-shift-L
 
+    # Remap keys in the session tree so that they start at 1, to align with keyboard layout
+    bind-key s choose-tree -ZsK '#{?#{e|<:#{line},9},#{e|+:1,#{line}},#{?#{e|<:#{line},35},M-#{a:#{e|+:97,#{e|-:#{line},9}}},}}'
+
     # When splitting panes, keep working directory
     bind '"' split-window -v -c "#{pane_current_path}"
     bind % split-window -h -c "#{pane_current_path}"
