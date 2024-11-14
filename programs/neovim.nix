@@ -1,4 +1,4 @@
-{ pkgs, append ? { } }:
+{ lib, pkgs, append ? { } }:
 
 let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; extraLazy = "{}"; } // append;
 
@@ -13,6 +13,7 @@ in
     ] ++ finalAppend.plugins;
 
     extraPackages = [
+      pkgs.gcc # for treesitter
       # pkgs.dhall-lsp-server broken
       pkgs.nil
       pkgs.java-language-server
@@ -38,6 +39,7 @@ in
     '' + finalAppend.extraConfig;
 
     extraLuaConfig = ''
+      vim.g.gcc_bin_path = '${lib.getExe pkgs.gcc}'
       extraLazy = ${finalAppend.extraLazy}
       dofile('${./neovim.lua}')
     '' + finalAppend.extraLuaConfig;
