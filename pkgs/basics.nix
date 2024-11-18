@@ -16,14 +16,15 @@ with pkgs; [
   wget
   magic-wormhole
   inetutils
+  tcpdump
+  lsof
+  gupnp-tools # run gssdp-discover -i <interface> to discover UPnP/SSDP services
+  netcat-gnu
 
   jq
 
   unstable.just
   tup
-
-  ibm-plex
-  nerdfonts
 
   hyperfine # benchmark from CLI
 

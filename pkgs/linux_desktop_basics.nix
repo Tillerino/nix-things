@@ -1,10 +1,16 @@
 {pkgs, unstable}:
 with pkgs; [
     # General GUI
-    dmenu
+    dmenu # for X
+    bemenu # for Wayland
     libnotify
 
     # Sound
     pulseaudio
     playerctl
+
+    # Fonts
+    ibm-plex
+    nerdfonts
+
 ]
