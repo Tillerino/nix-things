@@ -87,6 +87,16 @@ vim.keymap.set("n", "N", "Nzzzv") -- keep jump-to-prvious centered
 vim.keymap.set("n", "<leader>hms", ":w <CR> :!home-manager switch <CR>")
 
 -- Telescope
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-Down>"] = require('telescope.actions').cycle_history_next,
+        ["<C-Up>"] = require('telescope.actions').cycle_history_prev,
+      },
+    },
+  },
+}
 local builtin = require('telescope.builtin')
 -- see https://github.com/nvim-telescope/telescope.nvim#pickers
 vim.keymap.set('n', '<leader>ff', function()
