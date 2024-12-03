@@ -21,6 +21,7 @@ in
       pkgs.pyright
       pkgs.vscode-langservers-extracted
       pkgs.nodePackages.bash-language-server
+      pkgs.gopls
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''

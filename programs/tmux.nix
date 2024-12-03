@@ -42,7 +42,7 @@
     setw -g mode-keys vi
 
     # Resurrect 
-    set -g @resurrect-processes '"sudo -E -s nvim" vi vim nvim emacs man less more tail top htop irssi weechat mutt k9s "kubectl logs" "kubectl port-forward" watch'
+    set -g @resurrect-processes '"sudo -E -s nvim" vi vim nvim emacs man less more tail top htop irssi weechat mutt k9s "kubectl logs" "kubectl port-forward" watch ssh'
     set -g @resurrect-hook-post-save-all '~/git/nix-things/programs/tmux-resurrect-post-save.sh'
     set -g @resurrect-strategy-nvim 'session'
     set -g @resurrect-capture-pane-contents 'on'
