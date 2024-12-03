@@ -56,6 +56,8 @@
     # Save and restore sessions
     set -g @plugin 'tmux-plugins/tmux-resurrect'
 
+    # To install any plugins, TPM needs to be installed manually:
+    # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     run '~/.tmux/plugins/tpm/tpm'
   '';
 }

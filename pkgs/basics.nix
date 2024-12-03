@@ -8,6 +8,7 @@ with pkgs; [
   gdu # disk utilization
   tmux
   bonnie # bonnie++ -> simple fs benchmark
+  neofetch
 
   tldr
   thefuck
