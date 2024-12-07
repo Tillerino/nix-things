@@ -5,6 +5,7 @@ with pkgs; [
   ripgrep
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
   superfile
+  nnn
   gdu # disk utilization
   tmux
   bonnie # bonnie++ -> simple fs benchmark
