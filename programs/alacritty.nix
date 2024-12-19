@@ -25,5 +25,26 @@ in {
       columns = 120;
       lines = 40;
     };
+    hints.enabled = [
+      {
+        # from https://youtu.be/6iHgfXzjx9M?t=491
+        command = "xdg-open";
+        hyperlinks = true;
+        post_processing = true;
+        persist = false;
+        mouse.enabled = true;
+        binding = { key = "1"; mods = "Control"; };
+        regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";
+      }
+      {
+        # from https://youtu.be/6iHgfXzjx9M?t=491
+        regex = "[^ ]+(?:\\\\s*)$";
+        command = {
+          program = "${pkgs.tmux}/bin/tmux";
+          args = ["split-window" "-h" "-c" "#{pane_current_path}" "sh" "-c" "nvim \"$0\"" ]; 
+        };
+        binding = { key = "2"; mods = "Control"; };
+      }
+    ];
   };
 }
