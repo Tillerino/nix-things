@@ -7,6 +7,8 @@ in
 {
     enable = true;
 
+    dotDir = ".config/zsh";
+
     shellAliases = {
       # General
       l = "ls -lA";
