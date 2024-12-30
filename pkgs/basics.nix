@@ -8,8 +8,10 @@ with pkgs; [
   nnn
   gdu # disk utilization
   tmux
-  bonnie # bonnie++ -> simple fs benchmark
   neofetch
+
+  bonnie # bonnie++ -> simple fs benchmark
+  fio # more complex fs benchmark, see ',fio-' aliases
 
   tldr
   thefuck

@@ -17,6 +17,7 @@ in
       ",geekbench" = "nix-shell -p geekbench --run geekbench6";
       ",resurrect-history" = ''{ l=""; for f in ~/.local/share/tmux/resurrect/*.txt.post; do if [[ "$l" != "" ]]; then echo; echo ------------; echo $(basename $l) $(basename $f); echo ------------; diff $l $f; fi; l=$f; done } | less'';
       ",resurrect-diff" = ''for f in ~/.local/share/tmux/resurrect/*.txt.post; do f1=$f2; f2=$f; done; nvim -d $f1 ~/.local/share/tmux/resurrect/last'';
+      ",xdg-ninja" = "nix --experimental-features 'nix-command flakes' run github:b3nj5m1n/xdg-ninja";
 
       # Java
       ",java8" = "export JAVA_HOME=$HOME/jdks/openjdk8";

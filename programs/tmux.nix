@@ -5,6 +5,8 @@ let tpm = builtins.fetchGit "https://github.com/tmux-plugins/tpm";
 in {
   enable = true;
 
+  newSession = true; # Automatically spawn a session if trying to attach and none are running.
+
   # To reload the config after running home-manager, go <prefix> I
   extraConfig = ''
     # See https://www.youtube.com/watch?v=DzNmUNvnB04
