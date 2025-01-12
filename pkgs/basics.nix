@@ -9,6 +9,7 @@ with pkgs; [
   gdu # disk utilization
   tmux
   neofetch
+  zsh-completions
 
   bonnie # bonnie++ -> simple fs benchmark
   fio # more complex fs benchmark, see ',fio-' aliases
