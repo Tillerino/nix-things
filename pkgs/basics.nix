@@ -13,7 +13,7 @@ with pkgs; [
   bonnie # bonnie++ -> simple fs benchmark
   fio # more complex fs benchmark, see ',fio-' aliases
 
-  tldr
+  tealdeer # alternative tldr implementation
   thefuck
 
   curl
@@ -24,6 +24,7 @@ with pkgs; [
   lsof
   gupnp-tools # run gssdp-discover -i <interface> to discover UPnP/SSDP services
   netcat-gnu
+  nebula
 
   jq
 
