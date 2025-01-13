@@ -1,0 +1,18 @@
+#!/bin/sh
+
+MVN=$(if command -v mvnd > /dev/null; then echo mvnd; else echo mvn; fi)
+
+STASH_BEFORE=$(git stash list -1)
+git stash --keep-index --include-untracked
+STASH_AFTER=$(git stash list -1)
+$MVN spotless:check
+RC=$?
+if [ "$STASH_BEFORE" != "$STASH_AFTER" ]; then
+    git stash pop
+fi
+
+if [ $RC != 0 ]; then
+    $MVN spotless:apply
+fi
+ 
+exit $RC

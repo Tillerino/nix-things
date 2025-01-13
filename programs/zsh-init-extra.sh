@@ -69,6 +69,27 @@ function _mt() {
 }
 compdef _mt mt
 
+function ,mvn-install-spotless-pre-commit-hook() {
+  if [ -f .git/hooks/pre-commit ]; then
+    echo "pre-commit hook already exists:"
+
+    diff -q ~/git/nix-things/files/git-mvn-spotless-pre-commit-hook .git/hooks/pre-commit
+    if [ $? -eq 0 ]; then
+      echo "pre-commit hook is already installed"
+      return
+    fi
+
+    cat .git/hooks/pre-commit
+    echo "Do you want to override it? (y/n)"
+    read -r answer
+    if [ "$answer" != "y" ]; then
+      echo "Aborting"
+      return
+    fi
+    rm .git/hooks/pre-commit
+  fi
+}
+
 function github-keys() {
   curl https://github.com/$@.keys;
 }
