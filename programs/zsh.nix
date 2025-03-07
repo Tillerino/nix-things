@@ -53,6 +53,7 @@ in
       ",gt" = "git log --graph --all --oneline";
       ",gpo" = "git push origin";
       ",gcd" = "git checkout --detach";
+      ",setup-git" = "${../scripts/setup-git.sh}";
 
       # Docker
       ",docker-remove-testcontainers" = "docker rmi $(docker images | grep testcontainers | awk '{ print $3; }')";
