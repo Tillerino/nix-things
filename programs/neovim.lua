@@ -115,6 +115,7 @@ vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
 -- Treesitter
 vim.opt.runtimepath:append("~/.cache/nvim/treesitter-parsers")
+require("nvim-treesitter.install").compilers = { vim.g.gcc_bin_path }
 require'nvim-treesitter.configs'.setup {
   parser_install_dir = "~/.cache/nvim/treesitter-parsers",
   ensure_installed = "all",
