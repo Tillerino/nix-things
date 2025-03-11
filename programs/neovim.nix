@@ -8,7 +8,6 @@ in
     enable = true;
 
     plugins = [
-#     pkgs.vimPlugins.wildfire-vim
       pkgs.vimPlugins.lazy-nvim # for everything not in nixpkgs
     ] ++ finalAppend.plugins;
 
@@ -22,6 +21,7 @@ in
       pkgs.vscode-langservers-extracted
       pkgs.nodePackages.bash-language-server
       pkgs.gopls
+      pkgs.nodejs # for treesitter
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''
