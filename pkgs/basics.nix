@@ -11,6 +11,9 @@ with pkgs; [
   neofetch
   zsh-completions
 
+  # disk stuff
+  hdparm # check power
+
   bonnie # bonnie++ -> simple fs benchmark
   fio # more complex fs benchmark, see ',fio-' aliases
 

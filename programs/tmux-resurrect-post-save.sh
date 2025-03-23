@@ -13,6 +13,8 @@ sed -ie "s|:bash .*/tmp/nix-shell-.*/rc|:nix-shell|g" last
 # This is a special kind of hell because of the Neovim wrapper :|
 sed -ie "s| --cmd .*-vim-pack-dir||g" last
 
+sed -ie "s|/nix/store/[^/]*/bin/||g" last 
+
 for f in ~/.local/share/tmux/resurrect/*.txt; do f1=$f2; f2=$f; done
 cp last $f.post
 diff $f1.post last

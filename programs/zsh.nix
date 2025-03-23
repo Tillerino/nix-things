@@ -19,11 +19,19 @@ in
       ",tmux-resurrect-history" = ''{ l=""; for f in ~/.local/share/tmux/resurrect/*.txt.post; do if [[ "$l" != "" ]]; then echo; echo ------------; echo $(basename $l) $(basename $f); echo ------------; diff $l $f; fi; l=$f; done } | less'';
       ",tmux-resurrect-diff" = ''for f in ~/.local/share/tmux/resurrect/*.txt.post; do f1=$f2; f2=$f; done; nvim -d $f1 ~/.local/share/tmux/resurrect/last'';
       ",xdg-ninja" = "nix --experimental-features 'nix-command flakes' run github:b3nj5m1n/xdg-ninja";
-      ",journalctl-since-boot" = "sudo journalctl --boot --lines=all";
+
+      # systemd
+      ",systemctl-deps" = "systemctl show -p Requires,Wants,Requisite,BindsTo,PartOf,Before,After";
+      ",journalctl-since-boot" = "sudo journalctl --boot --lines=all --output with-unit";
+      ",journalctl-previous-boot" = "sudo journalctl -b-1 --lines=all --output with-unit";
 
       # Network
       ",net-list-connections" = "sudo lsof -i -P -n";
       ",net-bandwhich" = "nix-shell -p bandwhich --run 'sudo bandwhich'";
+
+      # Disks
+      ",disk-power-status" = "sudo hdparm -C /dev/sd[a-z]";
+      ",disk-power-standby" = "sudo hdparm -y /dev/sd[a-z]";
 
       # Java
       ",java8" = "export JAVA_HOME=$HOME/jdks/openjdk8";
@@ -60,6 +68,12 @@ in
 
       # Sound
       ",scarlett-mixer" = ''nix-shell -p alsa-scarlett-gui --run "alsa-scarlett-gui"'';
+
+      # LLMs
+      ",llama-cpp-code-server" = ''llama-server \
+        -hf ggml-org/Qwen2.5-Coder-3B-Q8_0-GGUF \
+        --port 8012 -ngl 99 -fa -ub 1024 -b 1024 \
+        --ctx-size 0 --cache-reuse 256'';
 
       ",dump-gnome" = "dconf dump / > ~/git/nix-things/files/gnome.conf";
       ",setup-gnome" = "dconf load / < ~/git/nix-things/files/gnome.conf";
