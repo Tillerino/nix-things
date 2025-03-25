@@ -51,11 +51,15 @@ in {
     set -g @resurrect-strategy-nvim 'session'
     set -g @resurrect-capture-pane-contents 'on'
 
+    # Better mouse mode
+    set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
+
     # Plugin list. Needs to be at the bottom of the file.
     set -g @plugin 'tmux-plugins/tpm'
     set -g @plugin 'tmux-plugins/tmux-sensible'
     # navigate around panes with Ctrl-H,J,K,L - same plugin in neovim - seamless
     set -g @plugin 'christoomey/vim-tmux-navigator'
+    set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
     # Save and restore sessions
     set -g @plugin 'tmux-plugins/tmux-resurrect'
