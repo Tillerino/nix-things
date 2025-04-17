@@ -13,4 +13,6 @@ with pkgs; [
     ibm-plex
     nerdfonts
 
+    # Other
+    stretchly
 ]
