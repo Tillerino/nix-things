@@ -10,7 +10,7 @@ with pkgs; [
     playerctl
 
     # Fonts
-    ibm-plex
+    nerd-fonts.blex-mono
 
     # Other
     stretchly
