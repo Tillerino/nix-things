@@ -115,5 +115,5 @@ in
       '';
     };
 
-    initExtra = (builtins.readFile ./zsh-init-extra.sh) + finalAppend.initExtra;
+    initContent = (builtins.readFile ./zsh-init-extra.sh) + finalAppend.initExtra;
 }

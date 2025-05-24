@@ -1,25 +1,29 @@
 {pkgs, unstable}:
 with pkgs; [
   zoxide # nicer cd, configured in zsh init
-  fzf # for fuzzy zoxide or for easy choices in shell
-  ripgrep
-  rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
-  superfile
-  nnn
-  gdu # disk utilization
   tmux
   neofetch
   zsh-completions
+  btop
+
+  # files
+  fzf # for fuzzy zoxide or for easy choices in shell
+  ripgrep
+  rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
+  nnn
+  czkawka # for image, video deduplication
 
   # disk stuff
   hdparm # check power
-
   bonnie # bonnie++ -> simple fs benchmark
   fio # more complex fs benchmark, see ',fio-' aliases
+  gdu # disk utilization
+  pv # "pipe view". pipe through this and it will show speed in stderr. can also limit speed.
 
   tealdeer # alternative tldr implementation
   thefuck
 
+  # Network
   curl
   wget
   magic-wormhole
@@ -54,6 +58,9 @@ with pkgs; [
   # Image processing
   exiftool # view / modify exif data
   imagemagick # image converter
+
+  # Video processing
+  ffmpeg
 
   gitui # TUI for git
 
