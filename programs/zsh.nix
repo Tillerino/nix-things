@@ -24,6 +24,7 @@ in
       ",systemctl-deps" = "systemctl show -p Requires,Wants,Requisite,BindsTo,PartOf,Before,After";
       ",journalctl-since-boot" = "sudo journalctl --boot --lines=all --output with-unit";
       ",journalctl-previous-boot" = "sudo journalctl -b-1 --lines=all --output with-unit";
+      ",systemd-fix-rootless-docker" = "rm ~/.config/systemd/user/docker.service && systemctl --user enable docker.service && systemctl --user start docker.service";
 
       # Network
       ",net-list-connections" = "sudo lsof -i -P -n";
