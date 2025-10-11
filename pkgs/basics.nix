@@ -5,6 +5,7 @@ with pkgs; [
   neofetch
   zsh-completions
   btop
+  killall
 
   # files
   fzf # for fuzzy zoxide or for easy choices in shell
