@@ -18,6 +18,7 @@ Window Close=Alt+F4,Alt+F4,Close Window
 Window Maximize=Meta+Up,Meta+PgUp,Maximize Window
 Window Minimize=Meta+Down,Meta+PgDown,Minimize Window
 Window Operations Menu=none,Alt+F3,Window Operations Menu
+Window Quick Tile Bottom=none,Meta+Down,Quick Tile Window to the Bottom
 Window Quick Tile Left=Meta+Left,Meta+Left,Quick Tile Window to the Left
 Window Quick Tile Right=Meta+Right,Meta+Right,Quick Tile Window to the Right
 Window Quick Tile Top=none,Meta+Up,Quick Tile Window to the Top
