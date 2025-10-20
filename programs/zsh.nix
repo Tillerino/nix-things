@@ -41,6 +41,7 @@ in
       ",java19" = "export JAVA_HOME=$HOME/jdks/openjdk19";
       ",java21" = "export JAVA_HOME=$HOME/jdks/openjdk21";
       ",java23" = "export JAVA_HOME=$HOME/jdks/openjdk23";
+      ",java25" = "export JAVA_HOME=$HOME/jdks/openjdk25";
 
       # Maven
       ",mcis" = "mvn clean javadoc:jar source:jar install -DskipTests -Djacoco.skip=true";
