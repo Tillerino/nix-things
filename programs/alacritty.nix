@@ -16,9 +16,9 @@ in {
   settings = {
     general.import = [ "${melange}/term/alacritty/melange_light.toml" ];
     font =  {
-      normal = { family = "BlexMono Nerd Font"; }; # weight not working?
-      bold.family = "BlexMono Nerd Font";
-      italic.family = "BlexMono Nerd Font";
+      normal = { family = "Iosevka Nerd Font"; }; # weight not working?
+      bold.family = "Iosevka Nerd Font";
+      italic.family = "Iosevka Nerd Font";
       size = 12.0;
     };
     window.dimensions = {

@@ -20,6 +20,7 @@ with pkgs; [
   fio # more complex fs benchmark, see ',fio-' aliases
   gdu # disk utilization
   pv # "pipe view". pipe through this and it will show speed in stderr. can also limit speed.
+  smartmontools # sudo smartctl -a /dev/sda
 
   tealdeer # alternative tldr implementation
   thefuck
@@ -34,6 +35,8 @@ with pkgs; [
   gupnp-tools # run gssdp-discover -i <interface> to discover UPnP/SSDP services
   netcat-gnu
   nebula
+  knot-dns # kdig -> like dig but diggier
+  nmap # port scanner
 
   jq
 
