@@ -93,3 +93,7 @@ function ,mvn-install-spotless-pre-commit-hook() {
 function github-keys() {
   curl https://github.com/$@.keys;
 }
+
+function ,ssh-impatient() {
+  while ! ssh $@ ; do sleep 1; done
+}

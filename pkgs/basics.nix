@@ -35,6 +35,7 @@ with pkgs; [
   gupnp-tools # run gssdp-discover -i <interface> to discover UPnP/SSDP services
   netcat-gnu
   nebula
+  dig
   knot-dns # kdig -> like dig but diggier
   nmap # port scanner
 
@@ -54,6 +55,7 @@ with pkgs; [
   parallel
 
   gnupg
+  age
 
   trippy
 
