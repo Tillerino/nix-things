@@ -1,6 +1,6 @@
 { } :
 
-let tpm = builtins.fetchGit "https://github.com/tmux-plugins/tpm";
+let tpm = builtins.fetchGit { url = "https://github.com/tmux-plugins/tpm"; rev = "99469c4a9b1ccf77fade25842dc7bafbc8ce9946"; };
 
 in {
   enable = true;
