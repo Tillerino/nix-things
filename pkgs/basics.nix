@@ -21,6 +21,7 @@ with pkgs; [
   gdu # disk utilization
   pv # "pipe view". pipe through this and it will show speed in stderr. can also limit speed.
   smartmontools # sudo smartctl -a /dev/sda
+  rclone # rsync for the cloud
 
   tealdeer # alternative tldr implementation
   thefuck
