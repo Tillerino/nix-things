@@ -40,7 +40,6 @@ in
       ",java17" = "export JAVA_HOME=$HOME/jdks/openjdk17";
       ",java19" = "export JAVA_HOME=$HOME/jdks/openjdk19";
       ",java21" = "export JAVA_HOME=$HOME/jdks/openjdk21";
-      ",java23" = "export JAVA_HOME=$HOME/jdks/openjdk23";
       ",java25" = "export JAVA_HOME=$HOME/jdks/openjdk25";
 
       # Maven
@@ -111,7 +110,6 @@ in
       # git config oh-my-zsh.hide-dirty 1
       plugins = [
         "git"
-        "thefuck"
       ];
       extraConfig = ''
         # Display red dots whilst waiting for completion.

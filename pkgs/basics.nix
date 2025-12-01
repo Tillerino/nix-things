@@ -24,7 +24,6 @@ with pkgs; [
   rclone # rsync for the cloud
 
   tealdeer # alternative tldr implementation
-  thefuck
 
   # Network
   curl
@@ -33,7 +32,6 @@ with pkgs; [
   inetutils
   tcpdump
   lsof
-  gupnp-tools # run gssdp-discover -i <interface> to discover UPnP/SSDP services
   netcat-gnu
   nebula
   dig
