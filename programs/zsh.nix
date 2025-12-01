@@ -65,10 +65,9 @@ in
       ",setup-git" = "${../scripts/setup-git.sh}";
 
       # Docker
-      ",docker-remove-testcontainers" = "docker rmi $(docker images | grep testcontainers | awk '{ print $3; }')";
-
-      # Sound
-      ",scarlett-mixer" = ''nix-shell -p alsa-scarlett-gui --run "alsa-scarlett-gui"'';
+      ",docker-remove-testcontainers" = "docker stop $(docker ps -q --filter label=org.testcontainers); docker rm $(docker ps -aq --filter label=org.testcontainers); docker rmi $(docker images | grep testcontainers | awk '{ print $3; }')";
+      ",docker-subnets" = ''for n in $(docker network ls --format="{{.Name}}"); do echo "$n"; docker network inspect --format '{{range .Containers}}  {{.IPv4Address}} {{.Name}}
+{{end}}' "$n"; done'';
 
       # LLMs
       ",llama-cpp-code-server" = ''llama-server \
@@ -86,6 +85,7 @@ in
       # KDE
       ",restart-kde-plasma" = "systemctl --user restart plasma-plasmashell";
       ",kde-diff-globalshortcuts" = "nvim -d ~/.config/kglobalshortcutsrc ~/git/nix-things/files/kglobalshortcutsrc";
+      ",kde-logout" = "qdbus org.kde.Shutdown /Shutdown logout";
 
       ",dump-eclipse-workspace" = ''clear; for f in $(find -name "*.prefs"); do echo; echo mkdir -p $(dirname $f); echo cat "<<EOT >> $f"; cat $f; echo "EOT"; echo; done'';
       ",setup-eclipse-workspace" = ''${../scripts/setup-eclipse-workspace.sh}'';
