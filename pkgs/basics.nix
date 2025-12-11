@@ -5,6 +5,7 @@ with pkgs; [
   neofetch
   zsh-completions
   btop
+  rt-tests # run cyclictest -a -t -p99 -> max should be fairly low, e.g. double average
   killall
 
   # files
@@ -42,6 +43,7 @@ with pkgs; [
 
   unstable.just
   tup
+  gnumake  
 
   hyperfine # benchmark from CLI
 
