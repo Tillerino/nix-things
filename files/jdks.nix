@@ -25,9 +25,9 @@
           <type>jdk</type><provides><version>21</version></provides>
           <configuration><jdkHome>${pkgs.openjdk21}</jdkHome></configuration>
         </toolchain>
+        <toolchain>
           <type>jdk</type><provides><version>25</version></provides>
           <configuration><jdkHome>${pkgs.openjdk25}</jdkHome></configuration>
-        </toolchain>
         </toolchain>
       </toolchains>
      '';
