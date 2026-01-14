@@ -3,4 +3,5 @@
 { config } : {
   EDITOR = "nvim";
   MAVEN_OPTS = "-Daether.dependencyCollector.impl=bf";
+  LESS = "--mouse";
 }
