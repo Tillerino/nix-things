@@ -1,5 +1,8 @@
 {pkgs, unstable}:
 with pkgs; [
+  # Nix
+  nix-tree
+
   zoxide # nicer cd, configured in zsh init
   tmux
   neofetch
