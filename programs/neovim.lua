@@ -2,7 +2,6 @@ local lazyPackages = {
 	{ "L3MON4D3/LuaSnip" },
   { "lukas-reineke/lsp-format.nvim" },
   { "neovim/nvim-lspconfig" },
-  { "nvim-treesitter/nvim-treesitter" },
   { "savq/melange-nvim" },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -33,7 +32,12 @@ for k,v in ipairs(extraLazy) do
     table.insert(lazyPackages, v)
  end
 
-require("lazy").setup(lazyPackages)
+require("lazy").setup(lazyPackages, {
+  performance = {
+    reset_packpath = false, -- so that plugins outside of lazy can be loaded
+  },
+})
+vim.cmd([[ packloadall ]]) -- load plugins outside of lazy
 
 vim.o.hidden = false
 vim.opt.background = 'light'
@@ -113,12 +117,7 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 -- Fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
 
--- Treesitter
-vim.opt.runtimepath:append("~/.cache/nvim/treesitter-parsers")
-require("nvim-treesitter.install").compilers = { vim.g.gcc_bin_path }
 require'nvim-treesitter.configs'.setup {
-  parser_install_dir = "~/.cache/nvim/treesitter-parsers",
-  ensure_installed = "all",
   highlight = {
     enable = true,
   },

@@ -8,11 +8,11 @@ in
     enable = true;
 
     plugins = [
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [ bash c cpp css csv dhall dockerfile dot git_config git_rebase gitattributes gitcommit gitignore go gomod gpg haskell helm html java javascript jq json ledger lua make markdown nginx nix perl php python rust scala sql tmux toml typescript xml yaml zig ]))
       pkgs.vimPlugins.lazy-nvim # for everything not in nixpkgs
     ] ++ finalAppend.plugins;
 
     extraPackages = [
-      pkgs.gcc # for treesitter
       # pkgs.dhall-lsp-server broken
       pkgs.nil
       pkgs.java-language-server
@@ -21,7 +21,6 @@ in
       pkgs.vscode-langservers-extracted
       pkgs.nodePackages.bash-language-server
       pkgs.gopls
-      pkgs.nodejs # for treesitter
     ] ++ finalAppend.extraPackages;
 
     extraConfig = ''
@@ -40,7 +39,6 @@ in
     '' + finalAppend.extraConfig;
 
     extraLuaConfig = ''
-      vim.g.gcc_bin_path = '${lib.getExe pkgs.gcc}'
       extraLazy = ${finalAppend.extraLazy}
       dofile('${./neovim.lua}')
     '' + finalAppend.extraLuaConfig;
