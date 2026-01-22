@@ -45,6 +45,11 @@ in {
         };
         binding = { key = "2"; mods = "Control"; };
       }
+      {
+        regex = "[^ ]+(?:\\\\s*)$";
+        command = "xdg-open";
+        binding = { key = "3"; mods = "Control"; };
+      }
     ];
   };
 }
