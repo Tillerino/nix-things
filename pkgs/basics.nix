@@ -41,6 +41,8 @@ with pkgs; [
   dig
   knot-dns # kdig -> like dig but diggier
   nmap # port scanner
+  mtr # nice traceroute
+  iperf3 # network performance
 
   jq
 
