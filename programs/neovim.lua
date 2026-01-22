@@ -50,25 +50,23 @@ vim.g.mapleader = ' '
 --
 -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-local lspconfig = require("lspconfig")
-lspconfig.nil_ls.setup{}
-lspconfig.dhall_lsp_server.setup{}
-lspconfig.java_language_server.setup {
-  cmd = { "java-language-server" },
-}
-lspconfig.pyright.setup{}
+vim.lsp.enable('nil_ls')
+vim.lsp.enable('dhall_lsp_server')
+vim.lsp.enable('java_language_server')
+vim.lsp.enable('pyright')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('bashls')
+vim.lsp.enable('gopls')
+vim.lsp.enable('html')
 
 -- HTML, see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup {
+vim.lsp.config('html', {
   capabilities = capabilities,
-}
-lspconfig.rust_analyzer.setup{}
-lspconfig.bashls.setup{}
-lspconfig.gopls.setup{}
+})
 
 vim.keymap.set('n', '<leader>lref', vim.lsp.buf.references, opts)
 vim.keymap.set('n', '<leader>lren', vim.lsp.buf.rename, opts)

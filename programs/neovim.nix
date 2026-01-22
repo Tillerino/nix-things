@@ -1,4 +1,4 @@
-{ lib, pkgs, append ? { } }:
+{ lib, pkgs, append ? { }, lsps ? true }:
 
 let finalAppend = { plugins = [ ]; extraPackages = [ ]; extraConfig = ""; extraLuaConfig = ""; extraLazy = "{}"; } // append;
 
@@ -12,8 +12,7 @@ in
       pkgs.vimPlugins.lazy-nvim # for everything not in nixpkgs
     ] ++ finalAppend.plugins;
 
-    extraPackages = [
-      # pkgs.dhall-lsp-server broken
+    extraPackages = (if lsps then [
       pkgs.nil
       pkgs.java-language-server
       pkgs.ripgrep
@@ -21,7 +20,7 @@ in
       pkgs.vscode-langservers-extracted
       pkgs.nodePackages.bash-language-server
       pkgs.gopls
-    ] ++ finalAppend.extraPackages;
+    ] else []) ++ finalAppend.extraPackages;
 
     extraConfig = ''
       " https://vi.stackexchange.com/a/4175
