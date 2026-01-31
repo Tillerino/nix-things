@@ -59,7 +59,7 @@ in
         '';
 
       # Git
-      ",gt" = "git log --graph --all --oneline";
+      ",gt" = ''LESS="" git log --graph --all --oneline''; # Need to clear the --mouse flag from less here, or it will be chaos.
       ",gpo" = "git push origin";
       ",gcd" = "git checkout --detach";
       ",setup-git" = "${../scripts/setup-git.sh}";
