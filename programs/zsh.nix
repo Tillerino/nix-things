@@ -1,4 +1,4 @@
-{ pkgs, append ? { } }:
+{ pkgs, config, append ? { } }:
 
 let finalAppend = { shellAliases = { }; initExtra = ""; } // append;
 
@@ -7,7 +7,7 @@ in
 {
     enable = true;
 
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
 
     shellAliases = {
       # General
