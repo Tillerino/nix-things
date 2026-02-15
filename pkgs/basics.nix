@@ -17,6 +17,7 @@ with pkgs; [
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
   nnn
   czkawka # for image, video deduplication
+  entr # run command when file changes
 
   # disk stuff
   hdparm # check power
@@ -26,6 +27,7 @@ with pkgs; [
   pv # "pipe view". pipe through this and it will show speed in stderr. can also limit speed.
   smartmontools # sudo smartctl -a /dev/sda
   rclone # rsync for the cloud
+  dysk # disk-centric df
 
   tealdeer # alternative tldr implementation
 

@@ -29,6 +29,7 @@ in
       # Network
       ",net-list-connections" = "sudo lsof -i -P -n";
       ",net-bandwhich" = "nix-shell -p bandwhich --run 'sudo bandwhich'";
+      ",net-scan-subnet" = "nmap -T5 -sn -PR";
 
       # Disks
       ",disk-power-status" = "sudo hdparm -C /dev/sd[a-z]";
