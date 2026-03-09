@@ -18,6 +18,7 @@ with pkgs; [
   nnn
   czkawka # for image, video deduplication
   entr # run command when file changes
+  file
 
   # disk stuff
   hdparm # check power
