@@ -7,8 +7,9 @@ bindkey '5~' kill-word
 eval "$(zoxide init --cmd cd zsh)"
 
 # General
-function wh() { readlink -f $(which $@) }
-
+function wh() {
+  readlink -f "$(which $@)"
+}
 
 # FIO
 function ,fio-randwrite() {
