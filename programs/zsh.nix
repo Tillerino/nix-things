@@ -19,6 +19,7 @@ in
       ",tmux-resurrect-history" = ''{ l=""; for f in ~/.local/share/tmux/resurrect/*.txt.post; do if [[ "$l" != "" ]]; then echo; echo ------------; echo $(basename $l) $(basename $f); echo ------------; diff $l $f; fi; l=$f; done } | less'';
       ",tmux-resurrect-diff" = ''for f in ~/.local/share/tmux/resurrect/*.txt.post; do f1=$f2; f2=$f; done; nvim -d $f1 ~/.local/share/tmux/resurrect/last'';
       ",xdg-ninja" = "nix --experimental-features 'nix-command flakes' run github:b3nj5m1n/xdg-ninja";
+      ",sum" = "awk '{s+=$1} END {print s}'";
 
       # systemd
       ",systemctl-deps" = "systemctl show -p Requires,Wants,Requisite,BindsTo,PartOf,Before,After";
@@ -60,7 +61,7 @@ in
         '';
 
       # Git
-      ",gt" = ''LESS="" git log --graph --all --oneline''; # Need to clear the --mouse flag from less here, or it will be chaos.
+      ",gt" = ''LESS="" git log --graph --all --oneline --date-order''; # Need to clear the --mouse flag from less here, or it will be chaos.
       ",gpo" = "git push origin";
       ",gcd" = "git checkout --detach";
       ",setup-git" = "${../scripts/setup-git.sh}";
@@ -87,6 +88,9 @@ in
       ",restart-kde-plasma" = "systemctl --user restart plasma-plasmashell";
       ",kde-diff-globalshortcuts" = "nvim -d ~/.config/kglobalshortcutsrc ~/git/nix-things/files/kglobalshortcutsrc";
       ",kde-logout" = "qdbus org.kde.Shutdown /Shutdown logout";
+
+      # ZFS
+      ",zfs-snapshots-used" = "zfs list -t snapshot -pH -o used";
 
       ",dump-eclipse-workspace" = ''clear; for f in $(find -name "*.prefs"); do echo; echo mkdir -p $(dirname $f); echo cat "<<EOT >> $f"; cat $f; echo "EOT"; echo; done'';
       ",setup-eclipse-workspace" = ''${../scripts/setup-eclipse-workspace.sh}'';
