@@ -2,6 +2,7 @@
 with pkgs; [
   # Nix
   nix-tree
+  hydra-check # hydra-check thepackage --channel nixos-25.11
 
   zoxide # nicer cd, configured in zsh init
   tmux
@@ -65,6 +66,7 @@ with pkgs; [
 
   gnupg
   age
+  libsecret
 
   trippy
 
@@ -80,8 +82,10 @@ with pkgs; [
   gitui # TUI for git
 
   cloc # count lines of code
+  scc # much faster cloc
 
   usbutils # includes lsusb
+  pciutils # includes lspci
 
   dive # inspect container images
   lazydocker # TUI for docker
