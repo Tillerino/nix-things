@@ -17,7 +17,6 @@ with pkgs; [
   ripgrep
   rdfind # for simple deduplication. run rdfind -n true -deleteduplicates true . and remove -n true (dry-run) once satisfied
   nnn
-  czkawka # for image, video deduplication
   entr # run command when file changes
   file
 
@@ -50,7 +49,7 @@ with pkgs; [
 
   jq
 
-  unstable.just
+  just
   tup
   gnumake  
 
