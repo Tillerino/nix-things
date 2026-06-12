@@ -90,7 +90,7 @@ in
       ",kde-logout" = "qdbus org.kde.Shutdown /Shutdown logout";
 
       # ZFS
-      ",zfs-snapshots-used" = "zfs list -t snapshot -pH -o used";
+      ",zfs-snapshots-used" = "zfs list -t snapshot -pH -o used,name | sort -h";
 
       ",dump-eclipse-workspace" = ''clear; for f in $(find -name "*.prefs"); do echo; echo mkdir -p $(dirname $f); echo cat "<<EOT >> $f"; cat $f; echo "EOT"; echo; done'';
       ",setup-eclipse-workspace" = ''${../scripts/setup-eclipse-workspace.sh}'';
