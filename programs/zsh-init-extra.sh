@@ -98,3 +98,13 @@ function github-keys() {
 function ,ssh-impatient() {
   while ! ssh $@ ; do sleep 1; done
 }
+
+function ,age-encrypt-for-hostkey() {
+  age -R <(ssh "$1" cat /etc/ssh/ssh_host_ed25519_key.pub ) "$2" > "$2.age"
+}
+_,age-encrypt-for-hostkey() {
+  _arguments \
+    '1:host:_hosts' \
+    '2:file:_files'
+}
+compdef _,age-encrypt-for-hostkey ,age-encrypt-for-hostkey
