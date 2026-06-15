@@ -6,6 +6,8 @@ in
 
 {
     enable = true;
+    withRuby = true;
+    withPython3 = true;
 
     plugins = [
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [ bash c cpp css csv dhall dockerfile dot git_config git_rebase gitattributes gitcommit gitignore go gomod gpg haskell helm html java javascript jq json ledger lua make markdown nginx nix perl php python rust scala sql tmux toml typescript xml yaml zig ]))
@@ -18,7 +20,7 @@ in
       pkgs.ripgrep
       pkgs.pyright
       pkgs.vscode-langservers-extracted
-      pkgs.nodePackages.bash-language-server
+      pkgs.bash-language-server
       pkgs.gopls
     ] else []) ++ finalAppend.extraPackages;
 
@@ -37,7 +39,7 @@ in
       set exrc
     '' + finalAppend.extraConfig;
 
-    extraLuaConfig = ''
+    initLua = ''
       extraLazy = ${finalAppend.extraLazy}
       dofile('${./neovim.lua}')
     '' + finalAppend.extraLuaConfig;

@@ -20,6 +20,7 @@ in
       ",tmux-resurrect-diff" = ''for f in ~/.local/share/tmux/resurrect/*.txt.post; do f1=$f2; f2=$f; done; nvim -d $f1 ~/.local/share/tmux/resurrect/last'';
       ",xdg-ninja" = "nix --experimental-features 'nix-command flakes' run github:b3nj5m1n/xdg-ninja";
       ",sum" = "awk '{s+=$1} END {print s}'";
+      "neofetch" = "echo It\\'s fastfetch now. && false";
 
       # systemd
       ",systemctl-deps" = "systemctl show -p Requires,Wants,Requisite,BindsTo,PartOf,Before,After";

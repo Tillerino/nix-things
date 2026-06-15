@@ -6,7 +6,7 @@ with pkgs; [
 
   zoxide # nicer cd, configured in zsh init
   tmux
-  neofetch
+  fastfetch
   zsh-completions
   btop
   rt-tests # run cyclictest -a -t -p99 -> max should be fairly low, e.g. double average
