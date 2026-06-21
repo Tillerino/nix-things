@@ -4,7 +4,7 @@ local lazyPackages = {
   { "neovim/nvim-lspconfig" },
   { "savq/melange-nvim" },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   { "mbbill/undotree" },
